@@ -1,4 +1,3 @@
 class Link < ApplicationRecord
-  def index
-  end
+  belongs_to :user
 end
