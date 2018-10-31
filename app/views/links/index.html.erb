@@ -1,4 +1,12 @@
 <div class="col-md-8 col-md-offset-2">
+  <% if !user_signed_in? %>
+    <div class="jumbotron">
+      <h1>Welcome to Hacknews</h1>
+      <p>Where you share and learn about what's happening around you!</p>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+
+    </div>
+  <% end %>
   <% @links.each do |link| %>
   <div class="index_link clearfix">
   <div class="col-md-8">
