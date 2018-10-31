@@ -1,7 +1,16 @@
-<h2><%= @link.title %></h2>
-<p><%= @link.url %></p>
+<h2><a href="<%= @link.url %>"><%= @link.title %></a></h2>
+<p>Submitted by <%= @link.user.email %> <%= time_ago_in_words(@link.created_at) %> ago</p>
+<div class="btn-group">
+  <%= link_to "Visit URL", @link.url, class: "btn btn-primary" %>
+</div>
+<div class="btn-group">
+  <% if user_signed_in? %>
+    <% if @link.user_id == current_user.id %>
+      <%= link_to "Edit", edit_link_path(@link), class: "btn btn-default" %>
+      <%= link_to "Delete", link_path(@link), method: :delete,
+                          data: { confirm: "Are you sure?" }, class: "btn btn-default"  %>
+    <% end %>
+  <% end %>
+</div>
 
 <%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_link_path(@link) %>
-<%= link_to "Delete", link_path(@link), method: :delete,
-                      data: { confirm: "Are you sure?" } %>
