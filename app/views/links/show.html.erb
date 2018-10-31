@@ -12,6 +12,16 @@
     <% end %>
   <% end %>
 </div>
+<div class="btn-group pull-right">
+  <%= link_to like_link_path(@link), method: :put, class: "btn btn-default" do %>
+    <i class="far fa-thumbs-up"></i>
+    <%= @link.get_upvotes.size %>
+  <% end %>
+  <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default" do %>
+    <i class="far fa-thumbs-down"></i>
+    <%= @link.get_downvotes.size %>
+  <% end %>
+</div>
 
 <h3>Comments:</h3>
 <%= render @link.comments %>

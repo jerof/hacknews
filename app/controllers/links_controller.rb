@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :find_link, only: [:show, :edit, :update, :destroy]
+  before_action :find_link, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -36,6 +36,16 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     redirect_to root_path
+  end
+
+  def upvote
+    @link.liked_by current_user
+    redirect_back(fallback_location: root_path)
+  end
+
+  def downvote
+    @link.downvote_from current_user
+    redirect_back(fallback_location: root_path)
   end
 
   private

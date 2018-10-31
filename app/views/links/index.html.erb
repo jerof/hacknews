@@ -1,5 +1,18 @@
-<% @links.each do |link| %>
-  <h2><%= link_to link.title, link_path(link) %> <br>
-    <small>Submitted by <%= link.user.email %></small>
-  </h2>
-<% end %>
+
+  <% @links.each do |link| %>
+  <div class="link row">
+    <h2><%= link_to link.title, link_path(link) %> <br>
+      <small>Submitted by <%= link.user.email %></small>
+    </h2>
+    <div class="btn-group">
+      <%= link_to like_link_path(link), method: :put, class: "btn btn-default" do %>
+        <i class="far fa-thumbs-up"></i> Upvote
+        <%= link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default" do %>
+        <i class="far fa-thumbs-down"></i> Downvote
+        <%= link.get_downvotes.size %>
+      <% end %>
+    </div>
+    </div>
+  <% end %>

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @link = Link.find(params[:link_id])
     @comment = @link.comments.create(comment_params)
