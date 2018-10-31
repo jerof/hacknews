@@ -1,18 +1,31 @@
-
+<div class="col-md-8 col-md-offset-2">
   <% @links.each do |link| %>
-  <div class="link row">
-    <h2><%= link_to link.title, link_path(link) %> <br>
-      <small>Submitted by <%= link.user.email %></small>
-    </h2>
-    <div class="btn-group">
+  <div class="index_link clearfix">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="pull-left">
+        <h2><%= link_to link.title, link_path(link) %> <br></h2>
+          <p>Submitted <%= time_ago_in_words(link.created_at) %> ago by <%= link.user.name %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+    <div class="btn-group pull-right">
       <%= link_to like_link_path(link), method: :put, class: "btn btn-default" do %>
-        <i class="far fa-thumbs-up"></i> Upvote
+        <i class="far fa-thumbs-up"></i>
         <%= link.get_upvotes.size %>
       <% end %>
       <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default" do %>
-        <i class="far fa-thumbs-down"></i> Downvote
+        <i class="far fa-thumbs-down"></i>
         <%= link.get_downvotes.size %>
       <% end %>
     </div>
     </div>
+    <div class="row pull-right index_comment">
+      <p><%= link_to pluralize(link.comments.size, "Comment"), link_path(link) %></p>
+    </div>
+  </div>
+  </div>
   <% end %>
+</div>

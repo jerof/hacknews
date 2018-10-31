@@ -1,9 +1,11 @@
-<h1>New link</h1>
+<div class="col-md-8 col-md-offset-2">
+<h1 style="color: #ec6333">New link</h1>
 
 <%= simple_form_for @link do |f| %>
-  <%= f.input :title %>
-  <%= f.input :url %>
-  <%= f.button :submit, class: "btn btn-default" %>
+  <%= f.input :title, label: false, placeholder: "Enter a title", autofocus: true %>
+  <%= f.input :url, label: false, placeholder: "Enter a URL", autofocus: true %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to "Back", root_path %>
+</div>
