@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @links = Link.all.order("created_at DESC")
+    @links = Link.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   def new
