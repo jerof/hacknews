@@ -13,4 +13,9 @@
   <% end %>
 </div>
 
+<h3>Comments:</h3>
+<%= render @link.comments %>
+
+<h3>Reply to Comments:</h3>
+<%= render 'comments/form' %>
 <%= link_to "Back", root_path %>

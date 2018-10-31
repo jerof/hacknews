@@ -1,0 +1,7 @@
+<div class="row clearfix">
+  <p class="lead"><%= comment.content %></p>
+  <% if comment.user == current_user %>
+  <%= link_to "Delete", link_comment_path(comment.link, comment), method: :delete,
+                        data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+  <% end %>
+</div>
