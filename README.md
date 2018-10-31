@@ -1,24 +1,18 @@
-# README
+# Week 1 of my 15Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## This is my first week of the "15Challenge" where I build 15 rails apps in 15 weeks.
 
-Things you may want to cover:
+I built build a link aggregator web-app, similar to Reddit or Hacker News.
 
-* Ruby version
+* Users using this application will be able to upload links and submit them for other users.  
+* Only users who upload links can edit and delete them.
+* Other users can leave comments and either upvote or downvote a link.
 
-* System dependencies
+## Gems installed:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Simple form
+* Bootstrap-Sass
+* Jquery-Rails
+* Devise
+* Acts as Votable
+* Will Paginate
