@@ -17,4 +17,4 @@ I built build a link aggregator web-app, similar to Reddit or Hacker News.
 * Acts as Votable
 * Will Paginate
 
-# Follow me on twitter http://twitter.com/@nikhilsamuel
+## Follow me on twitter http://twitter.com/@nikhilsamuel
